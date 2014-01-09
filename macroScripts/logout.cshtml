@@ -1,0 +1,9 @@
+﻿@using umbraco.cms.businesslogic.member
+
+
+@if(umbraco.library.IsLoggedOn()){
+    var member=Member.GetCurrentMember();
+    Member.RemoveMemberFromCache(member);
+    Member.ClearMemberFromClient(member);                              
+      Response.Redirect("/");
+                                  }

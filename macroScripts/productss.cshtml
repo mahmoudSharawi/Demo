@@ -1,0 +1,31 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using umbraco.MacroEngines;
+@{
+  
+  var node = @Model.Id;
+  var childerns= @Model.Children;
+  <select id="selected" >
+@foreach(var item in childerns)
+{
+ var url=@item.Url;
+ <option value='@item.Url,@item.Name,@item.GetProperty("image").Value' >@item.Name </option>
+
+ 
+ }
+  </select>
+  <div></div>
+ <div id="Changingresults">
+  </div>
+<script type="text/javascript">
+$('#selected').change(function() {
+     var content = $(this).val();  
+     var items=content.split(',');      
+      $('#Changingresults').html("<a href='"+items[0]+"'>"+items[1]+"</a>"+"<div><img src='"+items[2]+"' height='150' width='150'/></div>");  
+                                            
+                                               
+            
+         
+});
+</script>
+}
+

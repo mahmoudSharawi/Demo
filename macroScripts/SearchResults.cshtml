@@ -1,0 +1,32 @@
+﻿
+@using umbraco.cms.businesslogic.member
+@using System.Collections
+ 
+@{
+  var searchString = Request["searchstring"];
+  List<Member> searchResults= new List<Member>();
+  var me= Member.GetCurrentMember();
+  var members= Member.GetAll;
+  if (!String.IsNullOrEmpty(searchString))
+  {
+     foreach (var membe in members)
+      {
+       if (membe.LoginName.Contains(searchString))
+       { 
+                 searchResults.Add(membe);   
+        }
+                
+        }
+ 
+    foreach (var dodo in searchResults)
+    {
+       if(@dodo.Id != @me.Id){ 
+      <div>
+         <a href="/UserDetail" onClick="location.href=this.href+'?id='+@dodo.Id;return false;" class="link" > @dodo.LoginName</a> 
+       
+      </div>
+                              }
+     
+    }
+  }
+}

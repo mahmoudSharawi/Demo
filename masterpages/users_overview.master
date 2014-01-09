@@ -1,0 +1,7 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/master.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="InnerContent" runat="server">
+  
+  <h3> Please search the user you are looking for</h3>
+  <umbraco:Macro Alias="List_of_members" runat="server"></umbraco:Macro>
+</asp:content>

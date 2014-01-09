@@ -1,0 +1,28 @@
+﻿<form method="post">
+<input type="text" id="searchstring" name="searchstring" value="@Request["searchstring"]"/>
+<input type="submit"/>
+</form>
+ 
+<div id="searchresults">
+@if (IsPost) {
+  @RenderPage("SearchResults.cshtml")
+}
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    var content = $('#searchstring').val();
+    $('#searchstring').keyup(function() {
+        if ($('#searchstring').val() != content) {
+            content = $('#searchstring').val();
+            $.ajax({
+               type: "POST",
+               url: "/searchresults",
+               data: "searchstring=" + content,
+               success: function(msg){
+                 $('#searchresults').html(msg);
+               }
+             });                                                                                      
+        }
+    });                           
+});
+</script>                      

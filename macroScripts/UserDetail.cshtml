@@ -1,0 +1,31 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using umbraco.cms.businesslogic.member
+
+@{
+  var members=Member.GetAll;
+  var url=Request.Url.ToString();
+  var usera="";
+  }
+@if(url.Split('?').Length > 1) {
+     var param= url.Split('?')[1];
+      usera= param.Split('=')[1];                                               
+            }
+       
+ @foreach(var dodo in @members){ 
+        var dodoo=""+@dodo.Id; 
+        if(dodoo.Equals(@usera)){
+        <div><label> Name : @dodo.LoginName </label></div>
+                                 
+        <div><label> Email : @dodo.Email </label></div>
+           
+        <div><label> Gender: @dodo.getProperty("gender").Value  </label></div>
+                                 
+        <div><label> Hobbies: @dodo.getProperty("hobb").Value  </label></div>
+        
+         <a href="/sendEmail" onClick="location.href=this.href+'?id='+@dodo.Id;return false;"> send Email to @dodo.LoginName</a>
+                                 } 
+          }              
+ 
+  
+   

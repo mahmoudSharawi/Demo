@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+  
+</head>
+  <form id="Form1" runat="server">
+  <body>
+ 
+  <nav id="main_navigation">
+      <umbraco:Macro Alias="Navigation" runat="server" />
+   </nav>   
+     <script>
+       $("#list").hover(function(){
+    $(this).find("#listelements").show();},function(){
+    $(this).find("#listelements").hide();});
+       </script>
+     <div class="content"> 
+   <div>
+      <% if (umbraco.library.IsLoggedOn()) {%> 
+        <label> welcome </label><umbraco:Macro Alias="CurrentUser" runat="server"></umbraco:Macro>
+       <% } %>
+         <div>
+        <asp:ContentPlaceHolder Id="InnerContent" runat="server">
+        <!-- Insert default "InnerContent" markup here -->
+        </asp:ContentPlaceHolder>
+   
+       </div>
+    
+  
+  </body>
+   </form>
+  </html>
+</asp:Content>

@@ -1,0 +1,30 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using umbraco.cms.businesslogic.member
+
+@{
+  var members=Member.GetAll;
+  var me= Member.GetCurrentMember();
+  var url=Request.Url.ToString();
+  var usera="";
+  }
+@if(url.Split('?').Length > 1) {
+     var param= url.Split('?')[1];
+      usera= param.Split('=')[1];                                               
+            }
+       
+ @foreach(var dodo in @members){ 
+        var dodoo=""+@dodo.Id; 
+        if(dodoo.Equals(@usera)){
+        <div><label> Sender :</label> <input type="text"  value="@me.Email" /> </div>
+                                 
+        <div><label> Reciever </label> <input type="text"  value="@dodo.Email" /> </div>
+           
+        <div><textarea style="width: 300px; height: 150px;"></textarea></div>
+                                 
+        <div><button> send </button></div>
+                                 } 
+          }              
+ 
+  
+   

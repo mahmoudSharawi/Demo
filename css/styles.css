@@ -1,0 +1,45 @@
+* {
+  margin:0;
+  padding:0;
+  font-family:arial;
+}
+nav {
+  width:200px;
+  background:#f1f1f1;
+  float:left;
+  padding:20px;
+}
+nav ul {
+  padding-left:20px;
+}
+.content {
+  padding:20px;
+  float:left;
+  margin-left:10px;
+  background:#f1f1f1;
+  width:500px;
+}
+.content h1 {
+  margin-bottom:30px;
+}
+.content form > div {
+  margin-bottom:10px;
+  overflow:hidden;
+}
+.content form input[type=submit] {
+  padding:3px 15px;
+  margin-top:20px;
+}
+.content ul {
+  padding-left:20px;
+}
+.content .teaser {
+  margin-top:20px;
+  border:solid 1px #ccc;
+  padding:5px;
+}
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

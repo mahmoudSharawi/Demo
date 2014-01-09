@@ -1,0 +1,11 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/master.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="InnerContent" runat="server">
+  
+    <div> <img src='<umbraco:Item field="image" runat="server" />'  height="150" width="150"/></div>
+  
+  <div> <umbraco:Item field="info" runat="server" />   </div>
+
+
+
+</asp:content>

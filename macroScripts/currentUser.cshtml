@@ -1,0 +1,6 @@
+﻿@using umbraco.cms.businesslogic.member
+
+@{
+  var me= Member.GetCurrentMember();
+  <a href="/change_details"> @me.LoginName </a>
+  }
